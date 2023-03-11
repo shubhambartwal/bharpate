@@ -1,12 +1,17 @@
-var MongoClient = require('mongodb').MongoClient;
-var uri = "mongodb://bharpate:Qwerty%40%40123@ac-7lukhc0-shard-00-00.f6jebug.mongodb.net:27017,ac-7lukhc0-shard-00-01.f6jebug.mongodb.net:27017,ac-7lukhc0-shard-00-02.f6jebug.mongodb.net:27017/?ssl=true&replicaSet=atlas-oj0o4a-shard-0&authSource=admin&retryWrites=true&w=majority";
-const mongoDB =()=>{
-MongoClient.connect(uri,{useNewUrlParser:true}, (err, result)=> {
-  if(error)
-  console.log("---",err);
-  else {
-    console.log("connected");
-  }
-});
+const mongoose = require('mongoose');
+const mongoURI= 'mongodb+srv://bharpate:Qwerty%40%40123@cluster0.f6jebug.mongodb.net/bharpatemern?retryWrites=true&w=majority';
+const mongoDB =async()=>{
+  await mongoose.connect(mongoURI,{useNewUrlParser:true}
+  ).then(()=>{
+    console.log('connected');
+    const fetched_data= mongoose.connection.db.collection("food_items");
+    fetched_data.find({}).toArray(function(err,data){
+      if(err)console.log(err);
+      else console.log(data);
+    })    
+  }).catch((error)=>{
+    console.log(error);
+  });
 }
+
  module.exports=mongoDB;
