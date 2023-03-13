@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, } from "react-router-dom";
 export default function Signup() {
   const [credentials, setcredentials] = useState({
     name: "",
@@ -8,16 +8,7 @@ export default function Signup() {
     geolocation: "",
   });
   const handleSubmit = async (e) => {
-    console.log("inside handleSubmit");
     e.preventDefault();
-    console.log(
-      JSON.stringify({
-        name: credentials.name,
-        email: credentials.email,
-        password: credentials.password,
-        location: credentials.geolocation,
-      })
-    );
     const response = await fetch("http://localhost:5000/api/createuser", {
       method: "POST",
       headers: {
