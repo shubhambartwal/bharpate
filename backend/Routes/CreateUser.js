@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require("../models/User");
 const bcrypt = require('bcryptjs');
 const jwt= require('jsonwebtoken');
-const jwtSecret= "whatisyournamemynameiskhan";
+const jwtSecret= "whatisyournamemynameiskhan##";
 const { body, validationResult } = require("express-validator");
 router.post(
   "/createuser",
@@ -44,6 +44,7 @@ router.post("/loginuser",
         return res
           .status(400)
           .json({ error: "Try login with correct credentials" });
+
      const pwdCompare= await bcrypt.compare(req.body.password,userData.password)
      
           if (!pwdCompare)//(req.body.password !== userData.password) before encryption
@@ -57,7 +58,7 @@ router.post("/loginuser",
             id:userData.id
           }
         }
-        const authToken=jwt.sign(data,jwtSecret)
+        const authToken=jwt.sign(data,jwtSecret);
         return res.json({ success: true,authToken:authToken });
     } catch (error) {
       console.log(error);
