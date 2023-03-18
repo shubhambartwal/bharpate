@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import {Link,useNavigate} from 'react-router-dom';
 
 export default function Login() {
-  let navigate= useNavigate();
+  const navigate = useNavigate();
   const [credentials, setcredentials] = useState({
     password: "",
     email: "",
@@ -26,7 +26,7 @@ export default function Login() {
     if(json.success){
   localStorage.setItem("authToken",json.authToken);
 console.log(localStorage.getItem("authToken"));
-  navigate("/");
+navigate("/");
     }
   }};
   const onChange = (event) => {
