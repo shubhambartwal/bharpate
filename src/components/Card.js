@@ -1,8 +1,10 @@
 import React from "react";
-
+import { useDispatchCart,useCart } from "./ContextReducer";
 export default function Card(props) {
   let options = props.options;
   let priceOptions= Object.keys(options);
+  const handleAddToCart=()=>{
+  }
   return (
 
     <div
@@ -34,6 +36,8 @@ export default function Card(props) {
         <div className="d-inline h-100 fs-6">Total Price</div>
       </div>
     </div>
+    <hr/>
+    <button className="btn btn-success justify-center mx-2" onClick={handleAddToCart}>Add to Cart</button>
   </div>
   );
 }
