@@ -6,7 +6,11 @@ switch(action.type)
 {
     case "ADD":
         return [...state,{id:action.id,name:action.name,size:action.size,price:action.price,img:action.img,qty:action.qty}]
-        
+    case "REMOVE":
+    let newArr=[...state]
+       newArr.splice(action.index,1)
+       return newArr;   
+    return 
         default:
             console.log("Error in Reducer"); 
 }
