@@ -53,7 +53,7 @@ navigate('/login');
             </div>
             :<div >
             <div className="btn bg-white text-success mx-2" onClick={()=>{setCartView(true)}}>My Cart{"  "}
-            <Badge pill bg="danger">{data.length}</Badge>
+            <Badge pill bg="danger">{data ? data.length : 0}</Badge>
             </div>
             {cartView ? <Modal onClose={() => setCartView(false)}><Cart></Cart></Modal> : ""}
 
