@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Card from "../components/Card";
-import { Link } from "react-router-dom";
-import Carousel from "../components/Carousel";
 export default function Home() {
   const [foodCat, setFoodCat] = useState([]);
   const [foodItem, setFoodItem] = useState([]);
@@ -63,8 +61,8 @@ export default function Home() {
         {foodCat !== []
           ? foodCat.map((data) => {
               return (
-                <div className="row mb-3">
-                  <div key={data._id} className="fs-3 m-3">
+                <div key={data._id} className="row mb-3">
+                  <div className="fs-3 m-3">
                     {data.CategoryName}
                   </div>
                   <hr />

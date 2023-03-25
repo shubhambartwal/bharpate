@@ -31,7 +31,7 @@ export default function Cart() {
 </thead>
 <tbody>
 {data.map((food,index)=>{
-   return( <tr>
+   return( <tr key={index+1}>
     <th scope='row'>{index+1}</th>
     <td>{food.name}</td>
     <td>{food.qty}</td>
@@ -42,9 +42,7 @@ export default function Cart() {
       dispatch({type: "REMOVE", index: index})
     }} />
   </button>
-  
         </td>
-
     </tr>
    )
 })}
