@@ -74,7 +74,9 @@ export default function Signup() {
               onChange={onChange}
             />
           </div>
-
+          <button type="/" className="m-3 btn btn-primary">
+          Back
+        </button>
           <button type="submit" className="m-3 btn btn-success">
             Submit
           </button>
