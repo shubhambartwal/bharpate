@@ -43,22 +43,7 @@ export default function Navbar() {
                 </Link>
               </li>
             </ul>
-            {!localStorage.getItem("authToken") ? (
-              <div className="d-flex">
-                <Link className="btn bg-white text-success m-1" to="/login">
-                  LogIn
-                </Link>
-                <Link
-                  className="btn bg-white text-success m-1"
-                  to="/createuser"
-                >
-                  {" "}
-                  SignUp
-                </Link>
-              </div>
-            ) : (
-              <div>
-                <div
+            <div
                   className="btn bg-white text-success mx-2"
                   onClick={() => {
                     setCartView(true);
@@ -76,7 +61,22 @@ export default function Navbar() {
                 ) : (
                   ""
                 )}
-
+            {!localStorage.getItem("authToken") ? (
+              <div className="d-flex">
+                <Link className="btn bg-white text-success m-1" to="/login">
+                  LogIn
+                </Link>
+                <Link
+                  className="btn bg-white text-success m-1"
+                  to="/createuser"
+                >
+                  {" "}
+                  SignUp
+                </Link>
+              </div>
+            ) : (
+              <div>
+                
                 <div
                   className="btn bg-white text-danger mx-2"
                   onClick={handleLogout}
