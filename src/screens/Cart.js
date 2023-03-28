@@ -31,7 +31,7 @@ export default function Cart() {
 </thead>
 <tbody>
 {data.map((food,index)=>{
-   return( <tr key={index+1}>
+   return( <tr key={index+1} className="text-white">
     <th scope='row'>{index+1}</th>
     <td>{food.name}</td>
     <td>{food.qty}</td>
@@ -48,9 +48,9 @@ export default function Cart() {
 })}
 </tbody>
 </table>
-<div><h1 className='fs-2'>Total Price:{totalPrice}/-</h1></div>
+<div><h1 className='fs-2 text-white'>Total Price:{totalPrice}/-</h1></div>
 <div>
-<button className='btn bg-success mt-5'onClick={handleCheckOut}>Check Out</button>
+<button className='btn bg-success mt-5 text-white'onClick={handleCheckOut}>Check Out</button>
 </div>
 </div>
 </div>
