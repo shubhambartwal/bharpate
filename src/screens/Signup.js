@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, } from "react-router-dom";
+import { Link} from "react-router-dom";
 export default function Signup() {
   const [credentials, setcredentials] = useState({
     name: "",
@@ -73,10 +73,7 @@ export default function Signup() {
               value={credentials.geolocation}
               onChange={onChange}
             />
-          </div>
-          <button type="/" className="m-3 btn btn-primary">
-          Back
-        </button>
+          </div>      
           <button type="submit" className="m-3 btn btn-success">
             Submit
           </button>
