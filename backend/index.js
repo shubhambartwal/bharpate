@@ -5,11 +5,11 @@ const mongoDB= require('./db');
 const port = 5000
 mongoDB();
 const corsOptions = {
-  origin: 'https://master--chimerical-marshmallow-665939.netlify.app/',
+  origin: 'https://master--chimerical-marshmallow-665939.netlify.app',
   optionsSuccessStatus: 200 
 };
 app.use(cors(corsOptions));
-app.options('*', cors());
+
 // app.use((req,res,next)=>{
 //   res.setHeader("Access-Control-Allow-Origin","https://cerulean-pothos-7c7075.netlify.app");
 //   res.header(
