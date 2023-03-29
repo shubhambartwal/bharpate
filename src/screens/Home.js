@@ -24,7 +24,7 @@ export default function Home() {
     loadData();
   }, []);
   return (
-    <div>
+    <div >
       <div>
         <Navbar />
       </div>

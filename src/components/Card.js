@@ -41,13 +41,16 @@ export default function Card(props) {
   [])
   return (
 
-    <div className="card mb-3 border border-2" style={{ maxWidth: "18rem" }}>
-    <img src={props.foodItem.img} className="card-img-top" alt="..." style={{ height: "100px", objectFit: "fill" }} />
-    <div className="card-body py-3">
+    <div
+    className="card mb-3 border border-2" style={{ maxWidth: "18rem" }}
+  >
+    <img src={props.foodItem.img} className="card-img-top" alt="..." 
+    style={{ height: "120px", objectFit: "fill" }} />
+    <div className="card-body p-3">
       <h5 className="card-title">{props.foodItem.name}</h5>
       <p className="card-text">This is some important text</p>
-      <div className="container w-100">
-        <select className="m-2 h-100 bg-dark text-light fs-5 rounded">
+      <div className=" container w-100">
+        <select className="m-2 h-100 bg-primary text-light fs-5 rounded" onChange={(e)=>setQty(e.target.value)}>
           {Array.from(Array(6), (e, i) => {
             return (
               <option key={i + 1} value={i + 1}>
@@ -56,17 +59,19 @@ export default function Card(props) {
             );
           })}
         </select>
-        <select className="m-2 h-100 bg-dark text-light fs-5 rounded" ref={priceRef} onChange={(e) => setSize(e.target.value)}>
-          {priceOptions.filter((d) => d !== "_id").map((data) => {
-            return (<option key={data} value={data}>{data}</option>)
+        <select className="m-2 h-100 bg-primary text-light fs-5 rounded" ref={priceRef} onChange={(e)=>setSize(e.target.value)}>
+          {
+            priceOptions.filter((d)=>d!=="_id").map((data)=>{
+            return(<option key={data} value={data}>{data}</option>)
           })}
+        
         </select>
         <div className="d-inline h-100 fs-4">₹{finalPrice}/-</div>
       </div>
-      <hr />
-      <button className="btn btn-primary justify-center mx-2" onClick={handleAddToCart}>Add to Cart</button>
     </div>
-  </div>
+    <hr/>
+    <button className="btn btn-success justify-center mx-2" onClick={handleAddToCart}>Add to Cart</button>
+  </div> 
   
 
   );
