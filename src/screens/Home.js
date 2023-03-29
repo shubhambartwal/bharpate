@@ -9,15 +9,21 @@ export default function Home() {
   const [search,setSearch]= useState('');
 
   const loadData = async () => {
-    let response = await axios.get("http://localhost:5000/api//foodData", {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    response = await response.json();
-    //console.log(response[0],response[1]);
-    setFoodItem(response[0]);
-    setFoodCat(response[1]);
+    try {
+      const response = await axios.get("http://localhost:5000/api//foodData", {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (!Array.isArray(response.data) || response.data.length < 2) {
+        throw new Error("Invalid response format");
+      }
+     // console.log("response form home",response);
+      setFoodItem(response.data[0]);
+      setFoodCat(response.data[1]);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   useEffect(() => {
