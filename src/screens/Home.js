@@ -42,13 +42,13 @@ export default function Home() {
       </div>
     </div>
     <div className="carousel-item active">
-      <img src="https://source.unsplash.com/random/900×700/?chiken" className="d-block w-100" alt="Banana" style={{objectFit: "cover"}} />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Samosachutney.jpg" className="d-block w-100" alt="Banana" style={{objectFit: "cover"}} />
     </div>
     <div className="carousel-item">
-      <img src="https://source.unsplash.com/random/900×700/?bread" className="d-block w-100" alt="Mango" style={{objectFit: "cover"}} />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg/800px-Eq_it-na_pizza-margherita_sep2005_sml.jpg" className="d-block w-100" alt="Mango" style={{objectFit: "cover"}} />
     </div>
     <div className="carousel-item">
-      <img src="https://source.unsplash.com/random/900×700/?biryani" className="d-block w-100" alt="Apple" style={{objectFit: "cover"}} />
+      <img src="https://natashaskitchen.com/wp-content/uploads/2020/07/General-Tsos-Chicken-4-500x375.jpg" className="d-block w-100" alt="Apple" style={{objectFit: "cover"}} />
     </div>
   </div>
   <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
