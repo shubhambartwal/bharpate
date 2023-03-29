@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import axios from 'axios';
 export default function Login() {
   const navigate = useNavigate();
   const [credentials, setcredentials] = useState({
@@ -9,16 +9,20 @@ export default function Login() {
   });
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/api/loginuser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: credentials.email,
-        password: credentials.password,
-      }),
-    });
+    const response=axios.post('http://localhost:5000/api/loginuser', {
+  email: credentials.email,
+  password: credentials.password,
+}, {
+  headers: {
+    'Content-Type': 'application/json',
+  },
+})
+.then((response) => {
+  // handle success
+})
+.catch((error) => {
+console.log(error);
+});
     const json = await response.json();
     console.log(json);
     if (!json.success) {

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link} from "react-router-dom";
+import axios from 'axios';
 export default function Signup() {
   const [credentials, setcredentials] = useState({
     name: "",
@@ -9,17 +10,21 @@ export default function Signup() {
   });
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/api/createuser", {
-      method: "POST",
+   const response= axios.post('http://localhost:5000/api/createuser', {
+      name: credentials.name,
+      email: credentials.email,
+      password: credentials.password,
+      location: credentials.geolocation,
+    }, {
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        name: credentials.name,
-        email: credentials.email,
-        password: credentials.password,
-        location: credentials.geolocation,
-      }),
+    })
+    .then((response) => {
+      // handle success
+    })
+    .catch((error) => {
+      // handle error
     });
     const json = await response.json();
     console.log(json);

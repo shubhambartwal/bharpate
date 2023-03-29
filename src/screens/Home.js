@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Card from "../components/Card";
+import axios from "axios";
 export default function Home() {
   const [foodCat, setFoodCat] = useState([]);
   const [foodItem, setFoodItem] = useState([]);
   const [search,setSearch]= useState('');
 
   const loadData = async () => {
-    let response = await fetch("http://localhost:5000/api//foodData", {
-      method: "GET",
+    let response = await axios.get("http://localhost:5000/api//foodData", {
       headers: {
         "Content-Type": "application/json",
       },
