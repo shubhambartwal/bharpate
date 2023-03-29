@@ -5,7 +5,7 @@ const mongoDB= require('./db');
 const port = 5000
 mongoDB();
 const corsOptions = {
-  origin: 'https://master--chimerical-marshmallow-665939.netlify.app',
+  origin: '*',
   optionsSuccessStatus: 200 
 };
 app.use(cors(corsOptions));
