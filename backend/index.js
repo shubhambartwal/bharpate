@@ -9,15 +9,18 @@ const corsOptions = {
   optionsSuccessStatus: 200 
 };
 app.use(cors(corsOptions));
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      "default-src": ["'self'"],
+      "style-src": ["'self'"]
+    },
+    featurePolicy: {
+      interestCohort: ["'none'"]
+    }
+  }
+}));
 
-// app.use((req,res,next)=>{
-//   res.setHeader("Access-Control-Allow-Origin","https://cerulean-pothos-7c7075.netlify.app");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin,X-Requested-With,Content-Type,Accept"
-//   );
-//   next();
-// })
 app.use(require('morgan')('combined'))
 
 app.use(express.json())
